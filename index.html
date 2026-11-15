@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A thank-you surprise</title>
+<link rel="icon" href="assets/images/star.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="ground" aria-hidden="true"></div>
+<div class="lights" id="lights" role="group" aria-label="Christmas lights – tap to change colour"></div>
+<button id="muteBtn" class="fab" aria-label="Turn music on">🔇</button>
+<button class="egg corner" aria-label="A little star">✦</button>
+
+<section class="stage" id="s0">
+  <form class="panel" id="setup" novalidate>
+    <h1>Edit your card</h1>
+    <p class="hint">Change anything here, then continue.</p>
+    <label for="fName">How should the card address your teacher?</label>
+    <input id="fName" maxlength="40" placeholder="Teacher">
+    <label for="fMsg">Your appreciation message</label>
+    <textarea id="fMsg" rows="10" maxlength="2500" placeholder="Write it in your own words."></textarea>
+    <small class="err" id="eMsg"></small>
+    <label for="fSig">Your signature</label>
+    <input id="fSig" maxlength="40" placeholder="Your name">
+    <small class="err" id="eSig"></small>
+    <label for="fEgg">Secret star note (optional)</label>
+    <input id="fEgg" maxlength="140" placeholder="Shown when the hidden star is found">
+    <div class="row"><button class="btn gold" type="submit">Save and replay</button></div>
+  </form>
+</section>
+
+<section class="stage on" id="s1">
+  <h1>A gift is waiting for you</h1>
+  <div class="gift" id="gift"><div class="peek"></div><div class="lid"><i class="bow"></i></div><div class="box"></div></div>
+  <button class="btn gold" id="giftBtn">Unwrap your gift</button>
+</section>
+
+<section class="stage" id="s2">
+  <h2 id="forName">For Teacher</h2>
+  <div class="env-wrap">
+    <div class="env" id="env">
+      <div class="letter"><b>Thank you</b><i></i><i></i><i></i></div>
+      <div class="front"></div>
+      <div class="flap"></div>
+      <button class="seal" id="seal" aria-label="Break the golden seal">✦</button>
+    </div>
+  </div>
+  <p class="hint" id="sealHint">Tap the golden seal to open</p>
+  <button class="btn gold" id="readBtn" hidden>Read your letter</button>
+</section>
+
+<section class="stage" id="s3">
+  <article class="paper">
+    <h2 id="capt">Thank you for being my professor</h2>
+    <h3 id="dear">Dear Teacher</h3>
+    <p class="msg" id="cmsg"></p>
+    <p class="sig" id="csig"></p>
+  </article>
+  <div class="row">
+    <button class="btn ghost" id="editBtn">Edit message</button>
+    <button class="btn gold" id="nextBtn">Continue</button>
+  </div>
+</section>
+
+<section class="stage" id="s4">
+  <div class="tree" id="tree">
+    <button class="egg topstar" aria-label="The tree-top star">★</button>
+    <div class="tier t1"></div><div class="tier t2"></div><div class="tier t3"></div><div class="trunk"></div>
+  </div>
+  <h2 id="thanks">Thank you!</h2>
+  <p class="hint" id="from"></p>
+  <div class="row">
+    <button class="btn gold" id="replayBtn">Replay</button>
+    <button class="btn ghost" id="backBtn">Edit card</button>
+  </div>
+</section>
+
+<div class="modal" id="modal" hidden>
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="mt">
+    <h2 id="mt">🌟 You found the secret star!</h2>
+    <p id="mtext"></p>
+    <button class="btn gold" id="mClose">Close</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
